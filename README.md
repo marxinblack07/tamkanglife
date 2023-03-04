@@ -1,2 +1,4 @@
-# tamkanglife
-Remake the Tamkang I Life website.
+# TamKangLife
+
+## Preface
+This website is remaking the 'tamkangIlife' website by using html, css and javascript.

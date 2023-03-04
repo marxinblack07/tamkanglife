@@ -1,0 +1,74 @@
+/// @name Mixins
+/// @author Marx Wang.
+
+@use '../helpers/functions' as func;
+
+//================================================================
+/// @name box-shadow
+
+/// @prop   {number}    horizon     =>  horizontal length.
+/// @prop   {number}    vertical    =>  vertical length.
+/// @prop   {number}    blur        =>  blur radius
+/// @prop   {number}    spread      =>  spread radius
+/// @prop   {number}    color       =>  color
+/// @prop   {number}    opacity     =>  opacity
+@mixin box-shadow
+(
+    $horizon:10px,
+    $vertical:7px,
+    $blur:6px,
+    $spread:0px,
+    $color:black,
+    $opacity:0.55
+)
+{
+    //  Append All the contents of the shadow.
+    $result: $horizon, $vertical, $blur, $spread;
+    //  Colors detect.
+    @if func.color-search($color,$return:false)
+    {
+        $result:append($list: $result, $val: rgba(func.color-search($color),$opacity), $separator: space);
+    }
+    @else{
+        $result:append($list: $result, $val: rgba($color,$opacity), $separator: space);
+    }
+    box-shadow: $result;
+}
+
+/// Respond website devices.
+/// @name rwd
+/// @param {string} $device - choose what kind of devices you want to show.
+/// @param {string} $choice [null] - choose is it maximum or minimum.
+/// @output - rwd website.
+
+@mixin rwd
+(
+    $device,
+    $choice:max
+)
+{
+    $device:string.to-lower-case($device);
+    $choice:(max,min);
+    $device-width:null;
+    $choice-type:null;
+    //          Decide which device.
+    @if (list.index($device-list, $device) == null)
+    {
+        @error "[RWD][Error]=> Invalid Device";
+    }
+    //          Decide whether is maximum or minimum.
+    @if (list.index($choice, $target)== null)
+    {
+        @error "[RWD][Error]=> Invalid choice";
+    }
+    @else{
+        $choice-type:$choice+"-width";
+    }
+    $device-width:map-get($map: $device-list-matched-#{$choice}, $key: $device);
+    @debug "[RWD][Debug]=> " $choice-type + ":" $device-width;
+    // Media Query Part.    Display the results.
+    @media screen and ($choice-type:$device-width)
+    {
+        @content;
+    }
+}

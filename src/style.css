@@ -1,0 +1,55 @@
+.decoration__cleared {
+  text-decoration: none;
+  list-style: none;
+}
+
+.element__closed {
+  display: none;
+}
+
+.area__showed {
+  border: 1px solid #333;
+}
+
+.text__default {
+  font-family: "Times New Roman", Times, serif;
+  text-align: start;
+  font-size: x-large;
+}
+
+.box__centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.image__centered {
+  display: block;
+  margin: auto auto;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+.body {
+  font-family: system-ui, -apple-system, "Noto Sans TC", sans-serif;
+  z-index: 1;
+}
+
+/*# sourceMappingURL=style.css.map */

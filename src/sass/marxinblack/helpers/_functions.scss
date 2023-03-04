@@ -1,0 +1,76 @@
+/// @name Functions.scss
+/// @content Functions
+/// @author MarxInBlack
+//====================================================================================
+//* Tools that I would need.
+@use './variables' as var;
+@use './colors' as co;
+
+/// @name color-search
+///*The function that can search color name and return values.
+/// @prop   {string}      color     -> The color to search.
+/// @prop   {string}      map       -> Map if you want to search in.
+/// @prop   {boolean}     return    -> If you want it to return the result.
+/// @output {string/boolean}        -> If return is true, return string;otherwise, return boolean..
+
+@function color-search
+(
+    $color:null,
+    $map:null,
+    $return:true
+)
+{
+    $result:null;
+    @if ($color==null)
+    {//             Make sure that color is not null.
+        @error "[Color-Search][Error]=> Color can't be null.";
+    }
+    //              Search mode
+    @if ($map == null)
+    {//             Wide area search.
+        @each $map--name,$map--index in co.$color-all
+        {
+            @each $color--name,$color--index in $map--index
+            {
+                @if ($color == $color--name)
+                {
+                    $result:append($result,$color--index);
+                }
+            }
+        }
+    }
+    @else
+    {//             Specific map search.
+        @if (map-has-key(co.$color-all,$map))
+        {
+            @each $color--name,$color--index in map-get(co.$color-all,$map)
+            {
+                @if ($color == $color--name)
+                {
+                    $result:append($result,$color--index);
+                }
+            }
+        }
+        @else
+        {
+            @error "[Color-Search][Error]=> Map #{$map} is not valid.";
+        }
+    }
+    @debug "[Color-Search][Debug]=> Result: #{$result}";
+    @if ($return == true)
+    {//             Return the value the color I searched.
+        @return $result;
+    }
+    @else
+    {//             Return the result of whether the color is exist.
+        @if ($result == null)
+        {
+            @return false;
+        }
+        @else
+        {
+            @return true;
+        }
+    }
+}
+

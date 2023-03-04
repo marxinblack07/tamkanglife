@@ -1,0 +1,36 @@
+/// @name Reset
+/// This File Contained Document's Basic Setups.
+/// @author Marx Wang
+//================================================================
+//* Tools that I'll need.
+@use '../base/typography' as *;
+@use '../helpers/variables' as var;
+//----------------------------------------------------------------
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/// @name html
+/// Settings for whole document.
+.html {
+    scroll-behavior: smooth;
+    font-size: 100%;
+}
+
+
+/// @name body
+/// Display Settings.
+.body {
+    font-family: system-ui, -apple-system, "Noto Sans TC", sans-serif;
+    z-index: index(var.$z-index,bg);
+}
+
+

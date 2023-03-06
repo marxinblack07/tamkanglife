@@ -11,13 +11,20 @@
   border: 1px solid #333;
 }
 
+.separator {
+  border: 1px #333 solid;
+  width: 10rem;
+  height: 0px;
+  margin: 0 auto;
+}
+
 .text__default {
   font-family: "Times New Roman", Times, serif;
   text-align: start;
   font-size: x-large;
 }
 
-.box__centered {
+.box__centered, .cover--image--container__text {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,6 +35,10 @@
   display: block;
   margin: auto auto;
   width: 100%;
+}
+
+.transition__fadeIn {
+  transition: opacity 0.15s linear;
 }
 
 * {
@@ -50,6 +61,176 @@
 .body {
   font-family: system-ui, -apple-system, "Noto Sans TC", sans-serif;
   z-index: 1;
+}
+
+.navbar {
+  visibility: hidden;
+  max-height: 5rem;
+}
+
+.cover--image {
+  max-height: 40rem;
+  padding: 8rem;
+  background-image: url("/src/photos/cover.jpg");
+  background-size: cover;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f1f5f8;
+}
+.cover--image--container__text {
+  display: flex;
+  width: 30rem;
+  height: 10rem;
+  background-color: rgba(51, 51, 51, 0.7);
+  backdrop-filter: blur(12px);
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.3);
+}
+.cover--image--title {
+  font-size: 30pt;
+  text-shadow: 1.5px 2px 5px rgba(244, 244, 244, 0.3);
+}
+.cover--image--text {
+  font-style: italic;
+  color: rgba(244, 244, 244, 0.7);
+}
+
+.functions {
+  height: 100vh;
+  padding-top: 3rem;
+}
+.functions--container {
+  position: relative;
+  height: 100vh;
+  max-height: 30rem;
+  width: 95%;
+  display: grid;
+  grid-template-columns: 1.7fr 2fr 1.7fr;
+  gap: 0.3rem;
+  margin: 1.5rem auto;
+}
+.functions--item {
+  background-image: linear-gradient(to right bottom, #db3737, #3789db, #37db89);
+  margin: 1rem;
+}
+.functions .weather {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: -1px 0px 6px 0px rgba(0, 0, 0, 0.55);
+}
+.functions .weather--container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 93%;
+  height: 93%;
+  background-color: white;
+  border-radius: 5px;
+}
+.functions .access {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: -1px 0px 6px 0px rgba(0, 0, 0, 0.55);
+}
+.functions .access--container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 93%;
+  height: 93%;
+  background-color: white;
+  border-radius: 5px;
+}
+.functions .reminder {
+  position: relative;
+  border-radius: 10px;
+  box-shadow: -1px 0px 6px 0px rgba(0, 0, 0, 0.55);
+}
+.functions .reminder--container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 93%;
+  height: 93%;
+  background-color: white;
+  border-radius: 5px;
+}
+.functions .weather--container {
+  display: grid;
+  grid-template-rows: 2fr 0.5fr 0.3fr 1fr;
+}
+.functions .weather--image {
+  background-color: bisque;
+  margin: 1.5rem;
+  border-radius: 20px 5px 20px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.functions .weather--image .weather--icon {
+  font-size: 72px;
+  color: #0a2239;
+}
+.functions .weather--status {
+  color: #333;
+  margin: 0 auto;
+}
+.functions .weather--detail {
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+.functions .access--container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.functions .access--option {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.functions .access--icon {
+  font-size: 50px;
+  margin: 0 auto;
+  width: 6rem;
+  height: 4.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  box-shadow: 2px 1px 6px 0px rgba(0, 0, 0, 0.7);
+  border-radius: 50px;
+}
+.functions .access--icon:hover {
+  transform: scale(1.1);
+}
+.functions .access--icon:active {
+  transform: translateY(5px) scale(0.98);
+}
+.functions .access--text {
+  color: #333;
+  font-weight: bold;
+}
+.functions .access .icon__colored1 {
+  color: #db3737;
+}
+.functions .access .icon__colored2 {
+  color: #37db89;
+}
+.functions .access .icon__colored3 {
+  color: #3789db;
 }
 
 /*# sourceMappingURL=style.css.map */

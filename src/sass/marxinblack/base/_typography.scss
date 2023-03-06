@@ -1,6 +1,9 @@
 /// @name Typography
 /// @content Classes usually used.
 
+@use '../helpers/variables' as var;
+@use '../helpers/functions' as func;
+
 .decoration__cleared
 {
     text-decoration: none;
@@ -14,6 +17,14 @@
 .area__showed
 {
     border: 1px solid #333;
+}
+
+.separator
+{
+    border: 1px #333 solid;
+    width: 10rem;
+    height: 0px;
+    margin: 0 auto;
 }
 
 .text__default
@@ -38,4 +49,11 @@
     display: block;
     margin: auto auto;
     width: 100%;
+}
+
+//----------------------------------------------------------------
+//  Fade in.
+.transition__fadeIn
+{
+    transition: map-get($map: var.$transition, $key: fade);
 }

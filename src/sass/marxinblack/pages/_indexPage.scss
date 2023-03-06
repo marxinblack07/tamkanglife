@@ -1,0 +1,174 @@
+@use '../helpers/variables' as var;
+@use '../helpers/functions' as func;
+@use '../base/typography' as typo;
+@use '../helpers/mixins' as mix;
+
+.cover
+{
+    &--image
+    {
+        max-height: 40rem;
+        padding: 8rem;
+        background-image: url("/src/photos/cover.jpg");
+        background-size: cover;
+        object-fit: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color:func.color-search(w300);
+        &--container__text
+        {
+            display: flex;
+            width: 30rem;
+            height: 10rem;
+            background-color: rgba(func.color-search(b300,co-black),0.7);
+            backdrop-filter: blur(12px);
+            @extend typo, .box__centered !optional;
+            flex-direction: column;
+            gap: 1rem;
+            @include mix.box-shadow(0px,5px,5px,$spread:3px,$opacity:0.3);
+        }
+        &--title
+        {
+            font-size: 30pt;
+            text-shadow: 1.5px 2px 5px rgba(func.color-search(w220,co-white),0.3);
+        }
+        &--text
+        {
+            font-style: italic;
+            color: rgba(func.color-search(w220,co-white),0.7);
+        }
+    }
+}
+.functions
+{
+    height:100vh;
+    padding-top: 3rem;
+    &--container
+    {
+        position: relative;
+        height: 100vh;
+        max-height: 30rem;
+        width: 95%;
+        display: grid;
+        grid-template-columns: 1.7fr 2fr 1.7fr;
+        gap: 0.3rem;
+        margin: 1.5rem auto;
+    }
+    &--item
+    {
+        background-image: linear-gradient(to right bottom, func.color-search(r100,theme-tamkang),func.color-search(b100,theme-tamkang),func.color-search(g100,theme-tamkang));
+        margin: 1rem;
+    }
+    @each $className in (weather, access, reminder)
+    {//     Three parts.
+        .#{$className}
+        {
+            position:relative;
+            border-radius: map-get(var.$radius, block);
+            @include mix.box-shadow(-1px,0px);
+            &--container
+            {
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
+                width:93%;
+                height:93%;
+                background-color: white;
+                border-radius: map-get(var.$radius, img);
+            }
+        }
+    }
+    .weather
+    {
+        &--container
+        {
+            display: grid;
+            grid-template-rows: 2fr 0.5fr 0.3fr 1fr;
+        }
+        &--image
+        {
+            background-color: bisque;
+            margin: 1.5rem;
+            border-radius: map-get($map: var.$radius, $key: block-2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .weather--icon
+            {
+                font-size: 72px;
+                color: func.color-search(b100,co-blue);
+            }
+        }
+        &--status
+        {
+            color:#333;
+            margin: 0 auto;
+        }
+        &--detail
+        {
+            margin: 0 auto;
+            margin-bottom: 1rem;
+        }
+    }
+    .access
+    {
+        &--container
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+        &--option
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            margin: 1.5rem auto;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        &--icon
+        {
+            font-size: 50px;
+            margin: 0 auto;
+            width: 6rem;
+            height: 4.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            @include mix.box-shadow(2px,1px,6px,$opacity:0.7);
+            border-radius: map-get($map: var.$radius, $key: btn-2);
+            &:hover
+            {
+                transform: scale(1.1);
+            }
+            &:active
+            {
+                transform: translateY(5px) scale(.98);
+            }
+        }
+        &--text
+        {
+            color: #333;
+            font-weight: bold;
+        }
+        @for $i from 1 through 3
+        {
+            $colors:(func.color-search(r100,theme-tamkang),func.color-search(g100,theme-tamkang),func.color-search(b100,theme-tamkang));
+            .icon__colored#{$i}
+            {
+                color: nth($colors,$i);
+            }
+        }
+    }
+    .reminder
+    {
+        //
+    }
+}

@@ -4,11 +4,93 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamkang I Life</title>
+    <title>淡江I生活 Tamkang I life</title>
     <link rel="stylesheet" href="./src/style.css">
     <script src="https://kit.fontawesome.com/bb90fbfc83.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+    <nav class="navbar">
+        <ul class="navbar--container__left">
+            <li class="navbar--student">For Student</li>
+            <li class="navbar--teacher">For Teacher</li>
+        </ul>
+        <div class="navbar--brand">
+            <img src="./src/photos/logo.png" alt="" class="navbar--logo">
+        </div>
+        <ul class="navbar--container__right">
+            <li class="navbar--school">For School</li>
+        </ul>
+    </nav>
+    <section class="cover">
+        <div class="cover--image">
+            <div class="cover--image--container__text">
+                <h1 class="cover--image--title">Tamkang I Life</h1>
+                <p class="cover--image--text">Colorful your life.</p>
+            </div>
+        </div>
+    </section>
+    <section class="functions">
+        <div class="functions--container">
+            <div class="functions--item weather">
+                <div class="weather--container">
+                    <div class="weather--image"><i class="weather--icon fa-solid fa-cloud-sun"></i></div>
+                    <h2 class="weather--status">現在溫度：16ºC</h2>
+                    <div class="separator"></div>
+                    <p class="weather--detail">
+                        最高溫度：22ºC、最低溫度：12ºC。<br>
+                        今日降雨量：0mm。<br>
+                        今天天氣十分的好！
+                    </p>
+                </div>
+            </div>
+            <div class="functions--item access">
+                <div class="access--container">
+                    <div class="access--option">
+                        <div class="access--icon icon__colored1">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <p class="access--text">I am Student</p>
+                    </div>
+                    <div class="access--option">
+                        <div class="access--icon icon__colored1">
+                            <i class="fa-sharp fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <p class="access--text">I am Teacher</p>
+                    </div>
+                    <div class="access--option">
+                        <div class="access--icon icon__colored2">
+                            <i class="fa-solid fa-bus-simple"></i>
+                        </div>
+                        <p class="access--text">Transportation</p>
+                    </div>
+                    <div class="access--option">
+                        <div class="access--icon icon__colored2">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <p class="access--text">Academic</p>
+                    </div>
+                    <div class="access--option">
+                        <div class="access--icon icon__colored3">
+                            <i class="fa-sharp fa-solid fa-paperclip"></i>
+                        </div>
+                        <p class="access--text">Resources</p>
+                    </div>
+                    <div class="access--option">
+                        <div class="access--icon icon__colored3">
+                            <i class="fa-solid fa-address-book"></i>
+                        </div>
+                        <p class="access--text">Contacts</p>
+                    </div>
+                </div>
+            </div>
+            <div class="functions--item reminder">
+                <!-- This Place would contains the upcoming Events. -->
+            </div>
+        </div>
+    </section>
+    <section class="bookshelf">
+        <!-- This Contains Bookshelf that can sale and borrow learning resource for all the student. -->
+        <!-- It can  -->
+    </section>
 </body>
 </html>
